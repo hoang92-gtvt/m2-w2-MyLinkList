@@ -59,6 +59,57 @@ public class MyLinkList<E> {
         beforIndex.next=afterIndex;
         this.numNodes--;
     }
+    public void removeFrist(){
+        head = head.next;
+        this.numNodes--;
+    }
+    public void remove(){
+        Node<E> temp =head;
+
+        for (int i = 0; i < this.numNodes-1; i++) {
+            temp=temp.next;
+        }
+        temp = null;
+        this.numNodes--;
+
+    }
+    public E get(int index){
+        Node<E> temp= head;
+        for (int i = 0; i < index; i++) {
+            temp=temp.next;
+        }
+        return temp.item;
+    }
+    public void set(int index, E data){
+        Node<E> temp= head;
+        for (int i = 0; i < index; i++) {
+            temp=temp.next;
+        }
+        temp.item= data;
+
+    }
+    public int size(){
+        return this.numNodes;
+    }
+
+    public void clear(){
+        head=null;
+        this.numNodes=0;
+
+    }
+    public int indexOf(E data){
+        Node<E> temp = head;
+        for (int i = 0; i < this.numNodes; i++) {
+            if(temp.item==data){
+                return i;
+            }
+            temp = temp.next;
+
+        }
+        return -1;
+    }
+
+
 
     @Override
     public String toString() {
